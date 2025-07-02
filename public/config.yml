@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: dthomson12/KarynWebsite
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: galleries
+    label: Galleries
+    folder: content/galleries
+    create: true
+    slug: "{{slug}}"
+    format: frontmatter
+    extension: md
+    identifier_field: title
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+        required: false
+      - label: Images
+        name: images
+        widget: list
+        fields:
+          - label: Alt Text
+            name: alt
+            widget: string
+            required: false
+          - label: Image
+            name: image
+            widget: image
