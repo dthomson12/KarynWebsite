@@ -1,14 +1,9 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: '/admin',
-        destination: '/admin/index.html',
-      },
-    ]
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export', // Enables static export
+  images: {
+    unoptimized: true, // Disable next/image optimization for static build
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
