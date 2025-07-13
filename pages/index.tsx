@@ -31,7 +31,9 @@ export default function Home({ galleries }: { galleries: Gallery[] }) {
           >
             {gallery.images?.[0]?.image && (
               <Image
-                src={`/uploads/${gallery.images[0].image}`}
+                src={gallery.images[0].image.startsWith('/uploads/')
+                  ? gallery.images[0].image
+                  : `/uploads/${gallery.images[0].image}`}
                 alt={gallery.images[0].alt || gallery.title}
                 width={300}
                 height={200}
